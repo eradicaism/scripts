@@ -16,7 +16,7 @@ local Window = Library.CreateLib("Raicho's Library | Critical Legends | ALPHA", 
 local MainTab = Window:NewTab("Main")
 local SectionA = MainTab:NewSection("Automatic")
 --//--
-SectionA:NewToggle("Orb Teleport (Auto)", "", function(State)
+SectionA:NewToggle("Orb Teleport (Auto)", "The mechanic teleportation orb, meticulously crafted and infused with arcane energies, is an ethereal and captivating object of shimmering luminosity. Its appearance resembles a small, perfectly smooth sphere, glowing with a mesmerizing hue that ranges from a vibrant blue to a pulsating violet. The orb hovers just a few inches above the ground, defying the laws of gravity and inviting curiosity from onlookers.", function(State)
     task.spawn(function()
         while State and wait(0.01) do
         local MyFol
@@ -38,7 +38,7 @@ SectionA:NewToggle("Orb Teleport (Auto)", "", function(State)
     end)
     end)
 
-    SectionA:NewToggle("Use All Actives/Skills (Auto)", "", function(State)
+    SectionA:NewToggle("Use All Actives/Skills (Auto)", "Automatic Skill Utilization is a remarkable ability possessed by individuals blessed with the means to automatically access and employ their skills. It grants them a unique advantage, allowing for effortless utilization of abilities without the need for conscious thought or deliberation. These individuals seamlessly navigate through life, adapting to challenges and delivering extraordinary results with ease.", function(State)
         while State and wait() do
         local args = {
         [1] = "UseItem",
@@ -63,7 +63,7 @@ SectionA:NewToggle("Orb Teleport (Auto)", "", function(State)
         end
         end)
 
-SectionA:NewDropdown("Mob Teleport", "", Mobs, function(CurrentOption)
+SectionA:NewDropdown("Mob Teleport", "This ability grants the user an unprecedented level of mobility and flexibility, as they can teleport to any desired destination as long as an object there has been previously chosen. Whether it be across the street, to the top of a mountain, or even to a different country, nothing is out of reach for someone endowed with such a capability.", Mobs, function(CurrentOption)
 local HRP = Player.Character:FindFirstChild("HumanoidRootPart")
 local Enemies = workspace.Enemies:GetDescendants()
    for i,v in next, Enemies do 
@@ -75,7 +75,7 @@ end)
 
 getgenv().CancelAutoMobTP = false
 
-SectionA:NewDropdown("Mob Teleport (Auto)", "", Mobs, function(CurrentOption)
+SectionA:NewDropdown("Mob Teleport (Auto)", "This ability grants the user an unprecedented level of mobility and flexibility, as they can teleport to any desired destination as long as an object there has been previously chosen. Whether it be across the street, to the top of a mountain, or even to a different country, nothing is out of reach for someone endowed with such a capability.", Mobs, function(CurrentOption)
 spawn(function()
     while not CancelAutoMobTP and wait(0.5) do
 local HRP = Player.Character:FindFirstChild("HumanoidRootPart")
@@ -104,7 +104,7 @@ end)
 
 local MaterialGivers = game:GetService("Workspace"):FindFirstChild("MaterialGivers"):GetDescendants()
 
-SectionA:NewToggle("Collect Fruits", "", function(State)
+SectionA:NewToggle("Collect Fruits", "The ability to collect fruits without limitations also grants individuals the power to overcome any barriers that stand in their way. They can skillfully navigate through thick foliage, climb towering trees, and traverse seemingly insurmountable terrain to reach the desired fruit, all effortlessly and with meticulous skill.", function(State)
 spawn(function()
 while State and wait(0.00000001) do
 	local Player = game:GetService("Players").LocalPlayer
@@ -124,7 +124,7 @@ end)
 
 local SectionB = MainTab:NewSection("Blatant")
 
-SectionB:NewButton("Bypass Projectile DMG", "", function()
+SectionB:NewButton("Bypass Projectile DMG", "The ability to bypass projectile damage equips individuals with an incredible defensive advantage, making them nearly impossible to hit with any projectile-based attack.", function()
     local Remote = game:GetService("ReplicatedStorage"):FindFirstChild("DamageNew", true)
     local Player = game:GetService("Players").LocalPlayer
     local OldNameCall = nil
@@ -427,6 +427,26 @@ end)
 
 DSection:NewButton("INF Yield", "Cool command", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+DSection:NewButton("Instant Prompt (bugged with meteorite)", "Cool command", function()
+    local function setHoldDuration(prompt)
+   prompt.HoldDuration = 0
+end
+
+-- Set initial HoldDuration values for existing ProximityPrompts
+for _, descendant in ipairs(game.Workspace:GetDescendants()) do
+   if descendant:IsA("ProximityPrompt") then
+       setHoldDuration(descendant)
+   end
+end
+
+-- Connect setHoldDuration to DescendantAdded event
+game.Workspace.DescendantAdded:Connect(function(descendant)
+   if descendant:IsA("ProximityPrompt") then
+       setHoldDuration(descendant)
+   end
+end)
 end)
 
 DSection:NewButton("Open all Chests", "Opens all the chests", function()
