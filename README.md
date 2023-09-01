@@ -8,9 +8,9 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=charlesbel&layout=compact&show_icons=true&theme=radical" alt="Most Used Languages">
 </p>
 
-- 🌱 Known Language(s): Lua (Beginner)
-- 📫 Any issues? : neebullla (Discord)
-- ⚡ Fun fact: When 60 seconds passed, a minute passed.
+- 🌱 Known Language(s): Lua (Rookie)
+- 📫 Any issues? : eradicaism (Guilded)
+- ⚡ Fun fact: The Hawaiian alphabet has only 12 letters: A, E, H, I, K, L, M, N, O, P, U, and W.
 
 
 
