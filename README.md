@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm Nebula (nebulaaaaaaaa)</h1>
+<h1 align="center">Hi 👋, I'm Eradicaism</h1>
 <h3 align="center">I got skill issues, ROBLOX scripter.</h3>
 
 <h2 align="center">📈 Quick Stats </h2> 
